@@ -1,0 +1,92 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #F6F5F9;
+}
+.body img{
+    margin-bottom: 18px;
+}
+.container {
+    color: black;
+    width: 400px;
+    border: 2px solid #7132F5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.container h1 {
+    color: red;
+    font-size: 33px;
+    font-weight: 400;
+}
+.container p {
+    color: black;
+    margin: 10px 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.container h3{
+    font-size: 18px;
+}
+.container button{
+    background-color: #7132F5;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 13px;
+    border-radius: 20px;
+}
+.container button:hover{
+    cursor: pointer;
+}
+@media (max-width: 400px) {
+    .body img{
+        display: none;
+    }
+    .container {
+        height: 100vh;
+        position: fixed;
+        border: none;
+    }
+    .container h1{
+        font-size: 50px;
+        font-weight: 600;
+    }
+    .container p{
+        padding: 25px;
+        font-size: 30px;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+    .container h3{
+        color: red;
+        font-size: 30px;
+    }
+    .container button{
+        font-size: 20px;
+    }
+}
+@media (max-width: 364px) {
+    .container{
+        position: fixed;
+    }
+    .container p{
+        padding: 0 40px;
+        font-size: 25px;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+    .container h3{
+        padding: 0 40px;
+        color: red;
+        font-size: 30px;
+    }
+}
