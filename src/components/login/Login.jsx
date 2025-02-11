@@ -5,11 +5,16 @@ import { useNavigate } from "react-router";
 
 const Login = () => {
   const navigate = useNavigate();
+  const navigate1 = useNavigate();
 
   const handlesubmit = (e) => {
     e.preventDefault();
     navigate('/twostep')
   };
+  
+  const next = () => {
+    navigate1('./')
+  }
 
   return (
     <div className="loginbody">
@@ -21,7 +26,7 @@ const Login = () => {
           </div>
           <div className="rightnavlogo">
             <button>U.S. English </button>
-            <button className="createaccount">Create Account</button>
+            <button className="createaccount" onClick={next}>Create Account</button>
           </div>
         </div>
         <form className="logincontainer" onSubmit={handlesubmit}>
